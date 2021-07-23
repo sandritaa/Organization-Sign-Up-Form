@@ -1,7 +1,7 @@
 <template>
 
     <!-- header -->
-    <header class="absolute flex flex-row gap-4 inset-x-0 top-0 items-center">
+    <header class="absolute flex flex-row gap-4 inset-x-0 top-0 items-center justify-center shadow-md">
         <p class="text-2xl">RedSol</p>
         <p class="text-md">Organizations sign up</p>
     </header>
@@ -27,6 +27,8 @@ export default {
 
 footer, header{
     text-align: center;
+    height: 40px;
+
 }
 
 </style>
