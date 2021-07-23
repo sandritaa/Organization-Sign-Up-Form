@@ -1,9 +1,10 @@
 <template>
 
+<!-- header -->
+<h1>RedSol</h1>
+
 <!-- footer -->
-<footer>
-  RedSol™ 
-</footer>
+<footer>RedSol™</footer>
 
 </template>
 
@@ -12,11 +13,11 @@
 export default {
   name: 'App',
   components: {
-  
   }
 }
 
 </script>
+
 
 <style scoped>
 
@@ -29,5 +30,6 @@ footer{
   margin: 0;
   justify-content: center
 }
+
 
 </style>
