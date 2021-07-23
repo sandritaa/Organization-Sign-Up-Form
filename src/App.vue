@@ -10,6 +10,7 @@
 
 <script>
 
+//comment
 export default {
   name: 'App',
   components: {
