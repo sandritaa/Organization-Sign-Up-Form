@@ -1,35 +1,22 @@
 <template>
+  <Chips v-model="value">
+	<template #chip="slotProps">
+		<div>
+			<span>{{slotProps.value}} - (active) </span>
+			<i class="pi pi-user-plus" style="font-size: 14px"></i>
+		</div>
+	</template>
+</Chips>
 
-    <!-- header -->
-    <h1>RedSol</h1>
-
-    <!-- footer -->
-    <footer>RedSol™</footer>
 
 </template>
 
 <script>
-
-//comment
 export default {
-  name: 'App',
-  components: {
-  }
-}
 
+}
 </script>
 
-
-<style scoped>
-    footer{
-        text-align: center;
-        height: 20px;
-        position: absolute;
-        bottom: 0;
-        width: 100vw;
-        margin: 0;
-        justify-content: center
-    }
-
+<style>
 
 </style>
