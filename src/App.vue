@@ -1,10 +1,10 @@
 <template>
 
-<!-- header -->
-<h1>RedSol</h1>
+    <!-- header -->
+    <h1>RedSol</h1>
 
-<!-- footer -->
-<footer>RedSol™</footer>
+    <!-- footer -->
+    <footer>RedSol™</footer>
 
 </template>
 
@@ -20,16 +20,15 @@ export default {
 
 
 <style scoped>
-
-footer{
-  text-align: center;
-  height: 20px;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  margin: 0;
-  justify-content: center
-}
+    footer{
+        text-align: center;
+        height: 20px;
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        margin: 0;
+        justify-content: center
+    }
 
 
 </style>
