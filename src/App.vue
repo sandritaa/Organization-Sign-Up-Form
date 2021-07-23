@@ -1,10 +1,10 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
 
-
+<!-- footer -->
 <footer>
   RedSol™ 
 </footer>
+
 </template>
 
 <script>
@@ -18,13 +18,16 @@ export default {
 
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style scoped>
+
+footer{
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  margin: 0;
+  justify-content: center
 }
+
 </style>
