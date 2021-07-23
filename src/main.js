@@ -17,6 +17,6 @@ const app= createApp(App)
  **************************/
 app.use(store).use(PrimeVue)
 
-
+// Comment
 
 app.mount('#app')
