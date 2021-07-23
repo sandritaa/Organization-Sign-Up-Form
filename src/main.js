@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store'
 import PrimeVue from 'primevue/config';
+import Textarea from 'primevue/textarea';
+import Chips from 'primevue/chips';
 
 /**
  *      CSS styles
@@ -21,5 +23,5 @@ app.use(store).use(PrimeVue)
  *      PrimeVue Components
  *          add the bellow this comments with: app.components('NameComponent', ImportedComponent);
  */
-
+app.component('Textarea', Textarea).component('Chips', Chips)
 app.mount('#app')
