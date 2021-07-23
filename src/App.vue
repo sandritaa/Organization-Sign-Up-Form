@@ -1,12 +1,13 @@
 <template>
 
     <!-- header -->
-    <header>
-        <h1>RedSol</h1>
+    <header class="absolute flex flex-row gap-4 inset-x-0 top-0 items-center">
+        <p class="text-2xl">RedSol</p>
+        <p class="text-md">Organizations sign up</p>
     </header>
     
     <!-- footer -->
-    <footer>RedSol™</footer>
+    <footer class="absolute inset-x-0 bottom-0">RedSol™</footer>
 
 </template>
 
@@ -23,25 +24,9 @@ export default {
 
 
 <style scoped>
-    footer{
-        text-align: center;
-        height: 30px;
-        position: absolute;
-        bottom: 0;
-        width: 100vw;
-        margin: 0;
-        justify-content: center;
-        right: 0;
-    }
 
-    header{
-        text-align: center;
-        height: 30px;
-        position: absolute;
-        top: 0;
-        width: 100vw;
-        margin: 0;
-        justify-content: center;
-        right: 0;
-    }
+footer, header{
+    text-align: center;
+}
+
 </style>
