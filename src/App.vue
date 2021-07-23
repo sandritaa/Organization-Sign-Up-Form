@@ -1,7 +1,7 @@
 <template>
 
     <!-- header -->
-    <header class="absolute flex flex-row gap-4 inset-x-0 top-0 items-center justify-center shadow-md">
+    <header class="absolute flex flex-row gap-4 inset-x-0 top-0 items-baseline justify-center shadow-md">
         <p class="text-2xl">RedSol</p>
         <p class="text-md">Organizations sign up</p>
     </header>
