@@ -9,7 +9,7 @@ import PrimeVue from 'primevue/config';
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
 import 'primeicons/primeicons.css'                           //icons
-
+import '@/assets/index.css'
 const app= createApp(App)
 
 /**************************
@@ -17,6 +17,9 @@ const app= createApp(App)
  **************************/
 app.use(store).use(PrimeVue)
 
-// Comment
+/**
+ *      PrimeVue Components
+ *          add the bellow this comments with: app.components('NameComponent', ImportedComponent);
+ */
 
 app.mount('#app')
