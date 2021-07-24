@@ -8,7 +8,11 @@
 
     <div class="content flex justify-center align-middle">
         
-        <Details class=""/>
+        <!--<Details class=""/>-->
+
+        <Info/>
+
+
         
     </div>
     
@@ -19,11 +23,13 @@
 
 <script>
 import Details from '@/components/Details.vue'
+import Info from '@/components/Info.vue'
 //comment
 export default {
   name: 'App',
   components: {
-      Details
+      Details,
+      Info,
   }
 }
 
@@ -41,7 +47,7 @@ footer, header{
 .content{
     position: relative;
     height: 90vh;
-    width: 100vw;
+    min-width: 100vw;
     margin-top: 30px;
 }
 
