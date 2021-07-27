@@ -2,54 +2,49 @@
 <div class="form-demo">
     <div class="card shadow-xl rounded-xl p-5 mx-auto">
 
-        <div class="flex justify-around">
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <InputText id="inputtext" type="text" v-model="organizationName" /> <!--vmodel is our link. input -->
-                    <label for="inputtext">Organization Name</label>
-                </span>
-            </div>
+        <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+                <InputText id="inputtext" type="text" v-model="organizationName" /> <!--vmodel is our link. input -->
+                <label for="inputtext">Organization Name</label>
+            </span>
         </div>
-        
+    
+    
 
-        <div class="flex justify-around">
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <InputText id="inputtext" type="text" v-model="firstName" />
-                    <label for="inputtext">Your First Name</label>
-                </span>
-            </div>
-
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <InputText id="inputtext" type="text" v-model="lastName" />
-                    <label for="inputtext">Your Last Name</label>
-                </span>
-            </div>
+    
+        <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+                <InputText id="inputtext" type="text" v-model="firstName" />
+                <label for="inputtext">Your First Name</label>
+            </span>
         </div>
 
-        <div class="flex justify-around">
-            
-
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <InputNumber id="inputnumber" v-model="phoneNumber" />
-                    <label for="inputnumber">Phone Number</label>
-                </span>
-            </div>
-
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <InputText id="inputtext" type="text" v-model="email" />
-                    <label for="inputtext">Email</label>
-                </span>
-            </div>
-
+        <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+                <InputText id="inputtext" type="text" v-model="lastName" />
+                <label for="inputtext">Your Last Name</label>
+            </span>
         </div>
+    
+
+    
         
 
-        
+        <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+                <InputNumber id="inputnumber" v-model="phoneNumber" />
+                <label for="inputnumber">Phone Number</label>
+            </span>
+        </div>
 
+        <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+                <InputText id="inputtext" type="text" v-model="email" />
+                <label for="inputtext">Email</label>
+            </span>
+        </div>
+
+        
     <!-- form layout -->
         <div class="p-field p-col-12">
             <label for="address">Address</label>
