@@ -1,40 +1,45 @@
 <template>
     <div class="form-demo">
-        <div class="card shadow-md rounded-xl p-5">
-            <h5 class="text-center text-xl mb-6">More about the organization</h5>
+        <div class="card shadow-md rounded-xl p-10 grid justify-items-center">
 
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <Textarea id="textarea" v-model="OrgDescription" rows="3" />
-                    <label for="textarea">Orzanization description:</label>
-                </span>
-            </div>
+            <h5 class="text-center text-xl mb-3">
+                More about the organization
+            </h5>
 
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <Textarea id="textarea" v-model="VisionOrganization" rows="3" />
-                    <label for="textarea">Vision of Organization:</label>
-                </span>
-            </div>
+            <span class="p-float-label w-full m-3">
+                <Textarea class="w-full" id="textarea" v-model="OrgDescription" rows="3" />
+                <label for="textarea">Orzanization description:</label>
+            </span>
+        
 
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <Chips class="w-11/12" :allowDuplicate="false" id="chips" v-model="DonationsNeeded" />
-                    <label for="chips">Donations needed</label>
-                </span>
-            </div>
+        
+            <span class="p-float-label w-full m-3">
+                <Textarea id="textarea" v-model="VisionOrganization" rows="3" />
+                <label for="textarea">Vision of Organization:</label>
+            </span>
+        
 
-            <div>
-                <label for="FileUpload">Profile Picture</label>
-                <FileUpload mode="basic" name="demo[]" url="./upload" />
-                
-            </div>
+        
+            <span class="p-float-label w-full m-3">
+                <Chips class="w-full" :allowDuplicate="false" id="chips" v-model="DonationsNeeded" />
+                <label for="chips">Donations needed</label>
+            </span>
+            
 
-            <div class="mt-5">
-                <label for="FileUpload">Banner</label>
-                <FileUpload mode="basic" name="demo[]" url="./upload" />
-                
+            <div class="grid grid-cols-2 justify-evenly w-full">
+                <div class="my-3 flex flex-col justify-center">
+                    <label for="FileUpload">Profile Picture</label>
+                    <FileUpload mode="basic" name="demo[]" url="./upload" />
+                    
+                </div>
+
+                <div class="my-3 flex flex-col justify-center">
+                    <label for="FileUpload">Banner</label>
+                    <FileUpload mode="basic" name="demo[]" url="./upload" />
+                    
+                </div>
             </div>
+            
             
 
         </div>
