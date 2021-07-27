@@ -10,7 +10,7 @@
     </header>
 
     <!-- page container -->
-    <div class="content flex flex-col justify-center align-middle my-10">
+    <div class="content flex flex-col justify-center align-middle my-10 mx-auto">
 
         <!--Whatever we add here, will be displayed-->
         <Info v-if="page==0"></Info>
@@ -18,9 +18,9 @@
         <Services v-if="page==2"></Services>
 
         <!-- button -->
-        <div class="flex justify-center align-middle"> <!--how we plug-in tailwind css-->
-            <Button label="next" @click="increase"  class="p-button-link " /> <!--here we plug in our method-->
+        <div class="flex justify-center align-middle mt-7"> <!--how we plug-in tailwind css-->
             <Button label="previous" @click="decrease"  class="p-button-link " />
+            <Button label="next" @click="increase"  class="p-button-link " /> <!--here we plug in our method-->
         </div>
     </div>
 

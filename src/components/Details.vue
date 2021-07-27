@@ -1,5 +1,5 @@
 <template>
-    <div class="form-demo ">
+    <div class="form-demo">
         <div class="card shadow-md rounded-xl p-5">
             <h5 class="text-center text-xl mb-6">More about the organization</h5>
 
