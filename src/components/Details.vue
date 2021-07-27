@@ -50,13 +50,14 @@ export default {
     data(){
         return{
             DonationsNeeded: null,
-            OrgDescription:null,
+            OrgDescription: null,
             VisionOrganization:null,
         }
     },
     components:{
         FileUpload,
     },
+
     methods:{
         
     }
