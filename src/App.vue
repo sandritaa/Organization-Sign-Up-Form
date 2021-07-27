@@ -10,25 +10,19 @@
     </header>
 
     <!-- page container -->
-    <div class="content flex justify-center align-middle my-10">
-        
-        <!--<details class=""/>
-        Whatever we add here, will be displayed-->
-            <Info v-if="page==0"></Info>
-            <Details v-if="page==1"></Details>
-             <Services v-if="page==2"></Services>
-            
+    <div class="content flex flex-col justify-center align-middle my-10">
+
+        <!--Whatever we add here, will be displayed-->
+        <Info v-if="page==0"></Info>
+        <Details v-if="page==1"></Details>
+        <Services v-if="page==2"></Services>
+
+        <!-- button -->
+        <div class="flex justify-center align-middle"> <!--how we plug-in tailwind css-->
+            <Button label="next" @click="increase"  class="p-button-link " /> <!--here we plug in our method-->
+            <Button label="previous" @click="decrease"  class="p-button-link " />
+        </div>
     </div>
-
-
-    
-   <!-- button -->
-     <div class="flex justify-center align-middle"> <!--how we plug-in tailwind css-->
-       <Button label="next" @click="increase"  class="p-button-link " /> <!--here we plug in our method-->
-       <Button label="previous" @click="decrease"  class="p-button-link " />
-
-    </div>
-
 
     <!-- footer -->
     <footer class="fixed inset-x-0 bottom-0 z-10 bg-white">RedSol™</footer>
