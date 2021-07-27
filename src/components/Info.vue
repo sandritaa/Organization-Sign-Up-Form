@@ -3,7 +3,7 @@
 <div class="card shadow-xl p-5">
     <div class="p-field p-col-12 p-md-4">
         <span class="p-float-label">
-            <InputText id="inputtext" type="text" v-model="organizationName" />
+            <InputText id="inputtext" type="text" v-model="organizationName" /> <!--vmodel is our link. input -->
             <label for="inputtext">Organization Name</label>
         </span>
     </div>
@@ -61,7 +61,7 @@
 
 <script>
 
-// import area
+// import area. Only import here if using only in this component file. If it is used across multiple files, be sure to add to our main.js file!!!
 import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
 import Dropdown from 'primevue/dropdown'
@@ -70,8 +70,10 @@ import InputNumber from 'primevue/inputnumber'
 
 //export area
 export default {
+    // data function
     data(){
-        
+     
+    // return data object. This makes it accessible in our template. See below properties 
     return{
         organizationName:'',
         firstName:'',
