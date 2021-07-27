@@ -3,7 +3,7 @@
     <div class="card shadow-xl rounded-xl p-5 mx-auto">
         <div class="sm:grid grid-cols-2 p-5 justify-items-center">
 
-            <h3 class="mb-6">Basic Information</h3>
+            <h3 class="text-center text-xl mb-6">Basic Information</h3>
 
             <!-- Organization name -->
             <div class=" w-full p-field p-col-16 p-md-4 col-span-2">
@@ -59,7 +59,7 @@
 
             <!-- country -->
             <div class="p-field p-col-12 p-md-4 w-full">
-                <span class="p-float-label mx-5">
+                <span class="p-float-label mx-5" @click="resetStateCity">
                     <Dropdown class="w-full" id="dropdown" v-model="country" :options="allCountries" optionLabel="name" />
                     <label for="dropdown">Country</label>
                 </span>
@@ -140,7 +140,7 @@ export default {
 
     methods:{
         async getState(){
-
+            this.city = null;
             if(this.country){
                
                 this.states = await State.getStatesOfCountry(this.country.isoCode)
@@ -151,7 +151,12 @@ export default {
 
                 this.cities = await City.getCitiesOfState(this.country.isoCode, this.state.isoCode)
             }
+        },
+        resetStateCity(){
+            this.state = null;
+            this.city = null;
         }
+        
     }
 
 }
