@@ -1,24 +1,22 @@
 <template>
 
-    <!-- header -->
-    <header class="absolute flex flex-row gap-4 inset-x-0 top-0 items-baseline justify-center shadow-md">
-        <p class="text-2xl">RedSol</p>
-        <p class="text-md">Organizations sign up</p>
-    </header>
+    <div class="relative">
+        <!-- header -->
+        <header class="fixed  flex flex-row gap-4 inset-x-0 top-0 items-baseline justify-center shadow-md z-10 bg-white">
+            <p class="text-2xl">RedSol</p>
+            <p class="text-md">Organizations sign up</p>
+        </header>
 
-    <div class="content flex justify-center align-middle">
+        <div class="content flex justify-center align-middle my-10">
+            
+            <!--<Details />-->
+
+            <Info/>
+        </div>
         
-        <!--<Details class=""/>-->
-
-        <Info/>
-
-
-        
+        <!-- footer -->
+        <footer class="fixed inset-x-0 bottom-0 z-10 bg-white">RedSol™</footer>
     </div>
-    
-    <!-- footer -->
-    <footer class="absolute inset-x-0 bottom-0">RedSol™</footer>
-
 </template>
 
 <script>
@@ -46,8 +44,8 @@ footer, header{
 
 .content{
     position: relative;
-    height: 90vh;
-    min-width: 100vw;
+    min-height: 90vh;
+    width: 90vw;
     margin-top: 30px;
 }
 
