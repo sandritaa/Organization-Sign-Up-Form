@@ -20,7 +20,8 @@ export default {
 
     //Just to see if everything works correctly
     created(){
-        console.table(new Service())
+        let sr = new Service()
+        console.table(sr._id)
     },
 
     methods:{
