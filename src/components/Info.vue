@@ -71,11 +71,36 @@ import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
 import Dropdown from 'primevue/dropdown'
 import InputNumber from 'primevue/inputnumber'
-import { Country, State, City }  from 'country-state-city';
+
+import {ref} from 'vue'
 
 
 //export area
 export default {
+
+    setup(){
+        const organizationName = ref('')
+        const firstName = ref('')
+        const lastName = ref('')
+        const phoneNumber = ref('')
+        const email = ref('')
+        const address = ref(null)
+
+
+        return{
+        
+            organizationName,
+            firstName,
+            lastName,
+            phoneNumber,
+            email,
+
+            //Location
+            address,
+
+        }
+        }
+    },
 
     data(){
         return{
@@ -94,8 +119,6 @@ export default {
         const autocomplete = new google.maps.places.Autocomplete(
             document.getElementById("autocomplete")
         );
-
-        return autocomplete
     },
     components: {InputText,Textarea,Dropdown,InputNumber},
     methods:{
