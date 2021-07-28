@@ -24,12 +24,12 @@ const app= createApp(App)
  *      Dependencies
  **************************/
 app.use(store).use(PrimeVue)
-
+//'AIzaSyD0TbdsyQTdXGDPdXEqiXNxigFcA_rVGBc'
 /**
  *      PrimeVue Components
  *          add the bellow this comments with: app.components('NameComponent', ImportedComponent);
  */
-app.component('Textarea', Textarea).component('Chips', Chips).component('Button', Button) 
+app.component('Textarea', Textarea).component('Chips', Chips).component('Button', Button)
 
 // mount in the DOM
 app.mount('#app')

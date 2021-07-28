@@ -34,7 +34,7 @@
             <!-- phone number -->
             <div class="p-field p-col-12 p-md-4 w-full">
                 <span class="p-float-label mx-5">
-                    <InputNumber class="w-full" id="inputnumber" v-model="phoneNumber" />
+                    <InputNumber class="w-full" id="inputnumber" v-model="phoneNumber" :useGrouping="false"/>
                     <label for="inputnumber">Phone Number</label>
                 </span>
             </div>
@@ -47,49 +47,18 @@
                 </span>
             </div>
 
+
+
             
-            <!-- Main address -->
+            <!-- main -->
 
             <div class="p-field p-col-12 p-md-4 col-span-2 w-full">
                 <span class="p-float-label mx-5">
-                    <InputText class="w-full" id="inputtext" type="text" v-model="street" />
+                    <InputText class="w-full" id="autocomplete" type="text" v-model="street" />
                     <label for="inputtext">Street</label>
                 </span>
             </div>
 
-            <!-- country -->
-            <div class="p-field p-col-12 p-md-4 w-full">
-                <span class="p-float-label mx-5" @click="resetStateCity">
-                    <Dropdown class="w-full" id="dropdown" v-model="country" :options="allCountries" optionLabel="name" />
-                    <label for="dropdown">Country</label>
-                </span>
-            </div>
-
-            <!-- state -->
-            <div class="p-field p-col-12 p-md-4 w-full">
-                <span class="p-float-label mx-5" @click="getState">
-                    <Dropdown class="w-full" id="dropdown" v-model="state" :options="states" optionLabel="name" />
-                    <label for="dropdown">State</label>
-                </span>
-            </div>
-
-
-            <!-- city -->
-            <div class="p-field p-col-12 p-md-4 w-full">
-                <span class="p-float-label mx-5" @click="getCity">
-                    <Dropdown class="w-full " id="dropdown" v-model="city" :options="cities" optionLabel="name" />
-                    <label for="dropdown">City</label>
-                </span>
-            </div>
-
-            <div class="p-field p-col-12 p-md-4 w-full">
-                <span class="p-float-label mx-5">
-                    <InputNumber class="w-full" id="inputnumber" v-model="zip" />
-                    <label for="inputnumber">Zip</label>
-                </span>
-            </div>
-
-            
         </div>
     </div> 
 </div>
@@ -127,13 +96,21 @@ export default {
             allCountries:null,
             states:null,
             cities:null,
+
+            items:null,
         }
+    },
+    mounted() {
+        const autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById("autocomplete")
+        );
     },
 
 
     //add components 
     components: {InputText,Textarea,Dropdown,InputNumber},
 
+    //step1: get countries from API
     async created(){
         this.allCountries = await Country.getAllCountries()
     },
@@ -141,8 +118,8 @@ export default {
     methods:{
         async getState(){
             this.city = null;
+
             if(this.country){
-               
                 this.states = await State.getStatesOfCountry(this.country.isoCode)
             }
         },
@@ -155,6 +132,9 @@ export default {
         resetStateCity(){
             this.state = null;
             this.city = null;
+        },
+        setPlace(){
+
         }
         
     }
