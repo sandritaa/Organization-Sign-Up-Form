@@ -72,7 +72,7 @@ import Textarea from 'primevue/textarea'
 import Dropdown from 'primevue/dropdown'
 import InputNumber from 'primevue/inputnumber'
 
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 
 
 //export area
@@ -85,6 +85,18 @@ export default {
         const phoneNumber = ref('')
         const email = ref('')
         const address = ref(null)
+        const autocomplete = ref(null)
+
+        onMounted(()=>{
+            autocomplete.value = new google.maps.places.Autocomplete(
+                document.getElementById("autocomplete")
+            );
+        })
+
+        const print =()=>{
+            console.log(autocomplete.value.getPlace())
+            console.log(address.value)
+        }
 
 
         return{
@@ -97,37 +109,12 @@ export default {
 
             //Location
             address,
-
-        }
-        }
-    },
-
-    data(){
-        return{
-            organizationName:null,
-            firstName:null,
-            lastName:null,
-            phoneNumber: null,
-            email:null,
-
-            //Location
-            address: null
+            print,
 
         }
     },
-    mounted() {
-        const autocomplete = new google.maps.places.Autocomplete(
-            document.getElementById("autocomplete")
-        );
-    },
+
     components: {InputText,Textarea,Dropdown,InputNumber},
-    methods:{
-        print(){
-
-            console.log(autocomplete.getPlace())
-            console.log(this.address)
-        }
-    }
 }
 </script>
 
