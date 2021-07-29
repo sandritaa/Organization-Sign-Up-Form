@@ -45,9 +45,6 @@
                 </span>
             </div>
 
-
-
-            
             <!-- main -->
 
             <div class="p-field p-col-12 p-md-4 col-span-2 w-full">
@@ -57,8 +54,7 @@
                 </span>
             </div>
 
-            <Button @click="print">print</Button>
-
+            <button @click="print">click me</button>
         </div>
     </div> 
 </div>
@@ -72,35 +68,47 @@ import Textarea from 'primevue/textarea'
 import Dropdown from 'primevue/dropdown'
 import InputNumber from 'primevue/inputnumber'
 
+/**
+ *      IMPORT FOR OUR SET UP FUNCTION
+ */
 import {ref, onMounted} from 'vue'
 
 
 //export area
 export default {
-
+    
     setup(){
+
+        /**
+         *      VAR DECLARATION
+         */
         const organizationName = ref('')
         const firstName = ref('')
         const lastName = ref('')
-        const phoneNumber = ref('')
+        const phoneNumber = ref(null)
         const email = ref('')
+
         const address = ref(null)
         const autocomplete = ref(null)
 
+
+        /**
+         *      THE NEXT CODE WILL BE EXECUTED WHEN THIS COMPONENT IS MOUNTED.
+         */
+
         onMounted(()=>{
-            autocomplete.value = new google.maps.places.Autocomplete(
-                document.getElementById("autocomplete")
-            );
+            autocomplete.value = new google.maps.places.Autocomplete(document.getElementById("autocomplete"))
         })
 
-        const print =()=>{
-            console.log(autocomplete.value.getPlace())
-            console.log(address.value)
+        
+
+        const print=()=>{
+            console.log(autocomplete.value)
         }
 
+        
 
         return{
-        
             organizationName,
             firstName,
             lastName,
@@ -110,7 +118,6 @@ export default {
             //Location
             address,
             print,
-
         }
     },
 
