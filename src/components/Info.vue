@@ -49,7 +49,7 @@
 
             <div @click="print" class="p-field p-col-12 p-md-4 col-span-2 w-full">
                 <span class="p-float-label mx-5">
-                    <InputText class="w-full" id="autocomplete" type="text"  placeholder="Address"/>
+                    <InputText class="w-full" @focus="initAutocomplete" id="autocomplete" type="text"  placeholder="Address"/>
                 </span>
             </div>
 
@@ -69,7 +69,7 @@ import InputNumber from 'primevue/inputnumber'
 /**
  *      IMPORT FOR OUR SET UP FUNCTION
  */
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 
 
 //export area
@@ -84,11 +84,10 @@ export default {
         const firstName = ref('')
         const lastName = ref('')
         const phoneNumber = ref(null)
-        const email = ref('')
+        const email = ref('');
 
-        const address = ref(null);
+        let address = null;
         let autocomplete = null
-        let placeHolder = null;
         let input = null;
 
 
@@ -98,27 +97,21 @@ export default {
          */
 
         const print=()=>{
-            fillInAddress()
+            console.table(address)
         }
 
-        function initAutocomplete() {
-            input = document.getElementById("autocomplete");
-
+        onMounted(()=>{
+            input = document.getElementById('autocomplete')
             autocomplete = new google.maps.places.Autocomplete(input);
+        })
+
+        function initAutocomplete(){            
             input.focus();
-
             autocomplete.addListener("place_changed",fillInAddress());
-        }
+        };
 
-        
         function fillInAddress() {
-
-            const place = autocomplete.getPlace();
-
-            address.value = place.address_components;
-
-            console.table(address.value)
-
+            address = autocomplete.getPlace();
         }
         
 
@@ -134,7 +127,6 @@ export default {
             print,
             initAutocomplete,
             fillInAddress,
-            placeHolder,
 
         }
     
