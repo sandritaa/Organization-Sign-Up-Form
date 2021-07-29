@@ -47,14 +47,13 @@
 
             <!-- main -->
 
-            <div class="p-field p-col-12 p-md-4 col-span-2 w-full">
+            <div @click="print" class="p-field p-col-12 p-md-4 col-span-2 w-full">
                 <span class="p-float-label mx-5">
-                    <InputText class="w-full" id="autocomplete" type="text" v-model="address" placeholder=""/>
-                    <label for="inputtext">Address</label>
+                    <InputText class="w-full" id="autocomplete" type="text"  placeholder="Address"/>
+                    
                 </span>
             </div>
 
-            <button @click="print">click me</button>
         </div>
     </div> 
 </div>
@@ -88,8 +87,11 @@ export default {
         const phoneNumber = ref(null)
         const email = ref('')
 
-        const address = ref(null)
-        const autocomplete = ref(null)
+        let address = null;
+        let autocomplete = null
+        let placeHolder = null;
+        let input = null;
+
 
 
         /**
@@ -97,18 +99,37 @@ export default {
          */
 
         onMounted(()=>{
-            autocomplete.value = new google.maps.places.Autocomplete(document.getElementById("autocomplete"))
+            input = document.getElementById("autocomplete");
+            autocomplete = new google.maps.places.Autocomplete(input, {})
         })
 
-        
-
         const print=()=>{
-            console.log(autocomplete.value)
+            fillInAddress()
+        }
+
+        function initAutocomplete() {
+            address1Field = document.querySelector("#autocomplete");
+            // Create the autocomplete object, restricting the search predictions to
+            autocomplete = new google.maps.places.Autocomplete(address1Field);
+            address1Field.focus();
+            // When the user selects an address from the drop-down, populate the
+            // address fields in the form.
+            autocomplete.addListener("place_changed",fillInAddress());
         }
 
         
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            const place = autocomplete.getPlace();
 
-        return{
+            address = place.address_components;
+
+            console.table(address)
+
+        }
+        
+
+        return {
             organizationName,
             firstName,
             lastName,
@@ -118,10 +139,20 @@ export default {
             //Location
             address,
             print,
+            initAutocomplete,
+            fillInAddress,
+            placeHolder,
+
         }
+    
     },
 
-    components: {InputText,Textarea,Dropdown,InputNumber},
+    components: {
+        InputText,
+        Textarea,
+        Dropdown,
+        InputNumber,
+    },
 }
 </script>
 
