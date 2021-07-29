@@ -50,7 +50,6 @@
             <div @click="print" class="p-field p-col-12 p-md-4 col-span-2 w-full">
                 <span class="p-float-label mx-5">
                     <InputText class="w-full" id="autocomplete" type="text"  placeholder="Address"/>
-                    
                 </span>
             </div>
 
@@ -70,7 +69,7 @@ import InputNumber from 'primevue/inputnumber'
 /**
  *      IMPORT FOR OUR SET UP FUNCTION
  */
-import {ref, onMounted} from 'vue'
+import {ref} from 'vue'
 
 
 //export area
@@ -87,7 +86,7 @@ export default {
         const phoneNumber = ref(null)
         const email = ref('')
 
-        let address = null;
+        const address = ref(null);
         let autocomplete = null
         let placeHolder = null;
         let input = null;
@@ -98,33 +97,27 @@ export default {
          *      THE NEXT CODE WILL BE EXECUTED WHEN THIS COMPONENT IS MOUNTED.
          */
 
-        onMounted(()=>{
-            input = document.getElementById("autocomplete");
-            autocomplete = new google.maps.places.Autocomplete(input, {})
-        })
-
         const print=()=>{
             fillInAddress()
         }
 
         function initAutocomplete() {
-            address1Field = document.querySelector("#autocomplete");
-            // Create the autocomplete object, restricting the search predictions to
-            autocomplete = new google.maps.places.Autocomplete(address1Field);
-            address1Field.focus();
-            // When the user selects an address from the drop-down, populate the
-            // address fields in the form.
+            input = document.getElementById("autocomplete");
+
+            autocomplete = new google.maps.places.Autocomplete(input);
+            input.focus();
+
             autocomplete.addListener("place_changed",fillInAddress());
         }
 
         
         function fillInAddress() {
-            // Get the place details from the autocomplete object.
+
             const place = autocomplete.getPlace();
 
-            address = place.address_components;
+            address.value = place.address_components;
 
-            console.table(address)
+            console.table(address.value)
 
         }
         
