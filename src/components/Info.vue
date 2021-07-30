@@ -3,7 +3,7 @@
     <div class="card shadow-xl rounded-xl p-5 mx-auto">
         <div class="sm:grid grid-cols-2 p-5 justify-items-center">
 
-            <h3 class="text-center text-xl mb-6 col-span-2">Basic Information</h3>
+            <h3 class="text-center text-xl mb-6 col-span-2" @click="print()">Basic Information</h3>
 
             <!-- Organization name -->
             <div class=" w-full p-field p-col-16 p-md-4 col-span-2">
@@ -47,9 +47,10 @@
 
             <!-- main -->
 
-            <div @click="print" class="p-field p-col-12 p-md-4 col-span-2 w-full">
+            <div class="p-field p-col-12 p-md-4 col-span-2 w-full">
                 <span class="p-float-label mx-5">
-                    <InputText class="w-full" @focus="initAutocomplete" id="autocomplete" type="text"  placeholder="Address"/>
+                    <InputText class="w-full" id="autocomplete" v-model="place" type="text"  placeholder=""/>
+                    <label for="inputtext">Address</label>
                 </span>
             </div>
 
@@ -69,7 +70,7 @@ import InputNumber from 'primevue/inputnumber'
 /**
  *      IMPORT FOR OUR SET UP FUNCTION
  */
-import {ref, onMounted} from 'vue'
+import {onMounted, ref} from 'vue'
 
 
 //export area
@@ -83,36 +84,35 @@ export default {
         const organizationName = ref('')
         const firstName = ref('')
         const lastName = ref('')
-        const phoneNumber = ref(null)
-        const email = ref('');
+        const phoneNumber = ref('')
+        const email = ref('')
 
+        // text and place holder of address
         let address = null;
-        let autocomplete = null
         let input = null;
+        let place = ref('');
 
-
-
-        /**
-         *      THE NEXT CODE WILL BE EXECUTED WHEN THIS COMPONENT IS MOUNTED.
-         */
-
-        const print=()=>{
-            console.table(address)
-        }
+        // var for google API
+        let autocomplete = null;
 
         onMounted(()=>{
-            input = document.getElementById('autocomplete')
-            autocomplete = new google.maps.places.Autocomplete(input);
+            input = document.getElementById("autocomplete");
+
+            autocomplete = new google.maps.places.Autocomplete(input)
+
+            google.maps.event.addListener(autocomplete, 'place_changed', ()=>{
+                address = autocomplete.getPlace();
+                place = address.formatted_address
+            })
         })
 
-        function initAutocomplete(){            
-            input.focus();
-            autocomplete.addListener("place_changed",fillInAddress());
-        };
+    
 
-        function fillInAddress() {
-            address = autocomplete.getPlace();
+        const print=()=>{
+            console.table(address.formatted_address)
         }
+
+        
         
 
         return {
@@ -125,8 +125,8 @@ export default {
             //Location
             address,
             print,
-            initAutocomplete,
-            fillInAddress,
+            autocomplete,
+            place
 
         }
     
