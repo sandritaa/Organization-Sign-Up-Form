@@ -70,7 +70,7 @@ import InputNumber from 'primevue/inputnumber'
 /**
  *      IMPORT FOR OUR SET UP FUNCTION
  */
-import {onMounted, ref} from 'vue'
+import {onMounted, ref, onUpdated} from 'vue'
 
 
 //export area
@@ -84,7 +84,7 @@ export default {
         const organizationName = ref('')
         const firstName = ref('')
         const lastName = ref('')
-        const phoneNumber = ref('')
+        const phoneNumber = ref(null)
         const email = ref('')
 
         // text and place holder of address
@@ -109,10 +109,8 @@ export default {
     
 
         const print=()=>{
-            console.table(address.formatted_address)
+            onsole.table(address)
         }
-
-        
         
 
         return {
@@ -126,7 +124,7 @@ export default {
             address,
             print,
             autocomplete,
-            place
+            place,
 
         }
     

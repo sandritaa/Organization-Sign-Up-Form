@@ -46,23 +46,23 @@ export default {
       }
     },
 
-//here we declare our components 
-  name: 'App',
-  components: {
-      Details,
-      Info,
-      Services
-    
-  },
-//   here we add our functions 
-methods: {
-    increase(){
-        if(this.page < 2)this.page++
+    //here we declare our components 
+    name: 'App',
+    components: {
+        Details,
+        Info,
+        Services
+        
     },
-    decrease(){
-        if(this.page > 0)this.page-- 
-    }
-}
+    //   here we add our functions 
+    methods: {
+        increase(){
+            if(this.page < 2)this.page++
+        },
+        decrease(){
+            if(this.page > 0)this.page-- 
+        }
+    },
   
 }
 
