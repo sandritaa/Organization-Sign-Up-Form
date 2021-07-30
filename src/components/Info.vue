@@ -107,7 +107,7 @@ export default {
         })
 
         const print=()=>{
-            onsole.table(address)
+            console.table(address)
         }
         
         return {
