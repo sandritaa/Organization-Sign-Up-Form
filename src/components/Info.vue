@@ -70,7 +70,7 @@ import InputNumber from 'primevue/inputnumber'
 /**
  *      IMPORT FOR OUR SET UP FUNCTION
  */
-import {onMounted, ref, onUpdated} from 'vue'
+import {onMounted, ref} from 'vue'
 
 
 //export area
@@ -106,13 +106,10 @@ export default {
             })
         })
 
-    
-
         const print=()=>{
             onsole.table(address)
         }
         
-
         return {
             organizationName,
             firstName,
